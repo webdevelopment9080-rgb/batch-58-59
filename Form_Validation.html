@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+<body>
+    <main>
+
+        <form id="loginForm">
+
+            <input type="text" id="username" placeholder="Enter Username">
+            <p id="usernameError"></p>
+
+            <input type="email" id="email" placeholder="Enter Email">
+            <p id="emailError"></p>
+
+            <input type="password" id="password" placeholder="Enter Password">
+            <p id="passwordError"></p>
+
+            <button type="submit">Submit</button>
+        </form>
+
+
+
+
+
+    </main>
+
+    <script>
+
+
+        document.querySelector("#loginForm").addEventListener("submit",(e)=>{
+            e.preventDefault()
+
+            let valid = true;
+            let username = document.querySelector("#username").value
+            let usernameError = document.querySelector("#usernameError")
+
+            if (username.length < 3) {
+                usernameError.textContent = "Username length should be greater than or equal to 3"
+                valid = false
+            }
+            else{
+                usernameError.textContent = ""
+            }
+
+            
+            let email = document.querySelector("#email").value;
+            let emailError = document.querySelector("#emailError");
+
+            if (!email.includes("@")) {
+                emailError.textContent = "Enter a valid email";
+                valid = false;
+            }
+            else{
+                emailError.textContent = ""
+            }
+
+
+            // let password = document.querySelector("#password")
+
+
+        })
+
+
+    </script>
+</body>
+</html>
